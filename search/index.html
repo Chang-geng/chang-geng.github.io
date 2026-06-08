@@ -3,9 +3,10 @@
 <head>
   <title>
     
+    search - 
     Venusの自留地
   </title>
-  <meta property="og:title" content="Venusの自留地" />
+  <meta property="og:title" content="search - Venusの自留地" />
   <meta property="og:site_name" content="Venusの自留地" />
 
   <meta charset="utf-8" />
@@ -26,8 +27,8 @@
   
 
   
-  <link rel="canonical" href="http://example.com/archives/2026/">
-  <meta name="og:url" content="http://example.com/archives/2026/">
+  <link rel="canonical" href="http://example.com/search/">
+  <meta name="og:url" content="http://example.com/search/">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -58,41 +59,29 @@
 <hr />
 
   <div class="main">
-    <div class="list">
-  
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 8th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/06/08/hello-world/">Hello World</a>
-  </div>
-
-  
-
-  <div class="index_post_excerpt">
     
-  </div>
+<link rel="stylesheet" href="/css/search.css">
 
-  <!--
-  <a class="more" href="/2026/06/08/hello-world/">阅读更多</a>
-  -->
+<h1>Search</h1>
 
-</div>
+<form class="site-search-form">
+  <input type="text" id="local-search-input" class="st-search-input" />
+</form>
+<div id="local-search-result" class="local-search-result-cls"></div>
 
+<div hidden id="nfound">Result not found, please change the word...</div>
+<div hidden id="ninit">Loading index file, please wait...</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-compat/3.0.0-alpha1/jquery.min.js"></script>
 
-<div class="page_num">
+<script src="/js/search.js"></script>
 
-  
-  
-
-</div>
-</div>
-
+<script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  getSearchFile();
+  inputArea.onkeydown = function() {
+    if (event.keyCode === 13) return false
+  }
+</script>
   </div>
 
   <foot id="footer">
