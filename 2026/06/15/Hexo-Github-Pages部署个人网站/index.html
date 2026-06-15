@@ -3,10 +3,10 @@
 <head>
   <title>
     
-    search - 
+    Hexo + Github Pages部署个人网站 - 
     Venusの自留地
   </title>
-  <meta property="og:title" content="search - Venusの自留地" />
+  <meta property="og:title" content="Hexo + Github Pages部署个人网站 - Venusの自留地" />
   <meta property="og:site_name" content="Venusの自留地" />
 
   <meta charset="utf-8" />
@@ -27,8 +27,8 @@
   
 
   
-  <link rel="canonical" href="http://example.com/search/">
-  <meta name="og:url" content="http://example.com/search/">
+  <link rel="canonical" href="http://example.com/2026/06/15/Hexo-Github-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/">
+  <meta name="og:url" content="http://example.com/2026/06/15/Hexo-Github-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -60,28 +60,112 @@
 
   <div class="main">
     
-<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/post.css">
 
-<h1>Search</h1>
+<post>
 
-<form class="site-search-form">
-  <input type="text" id="local-search-input" class="st-search-input" />
-</form>
-<div id="local-search-result" class="local-search-result-cls"></div>
+  <div class="post_title">
+    Hexo + Github Pages部署个人网站
+  </div>
 
-<div hidden id="nfound">Result not found, please change the word...</div>
-<div hidden id="ninit">Loading index file, please wait...</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-compat/3.0.0-alpha1/jquery.min.js"></script>
+  <br /><br />
 
-<script src="/js/search.js"></script>
+  <div id="post_content">
+    <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>Hexo是一个快速、简洁且高效的博客框架，支持部署到Github Pages上，实现零成本建站。</p>
+<h2 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2. 准备工作"></a>2. 准备工作</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/" title="Node.js">Node.js</a>：提供npm包管理器套件。</li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/" title="Git">Git</a>：分布式控制版本系统，支持将档案发布到Github Pages</li>
+</ul>
+<p>你需要去官网下载这两个作为前置准备。</p>
+<h2 id="3-Hexo部署"><a href="#3-Hexo部署" class="headerlink" title="3. Hexo部署"></a>3. Hexo部署</h2><p>命令行输入以下命令以安装Hexo：</p>
+<pre><code class="language-bash">npm install hexo-cli -g
+</code></pre>
+<p>安装后可以输入<code>hexo -v</code>查看版本确认是否安装成功，类似以下返回即可。</p>
+<p><img src="/2026/06/15/Hexo-Github-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/Snipaste_2026-06-15_22-02-22.png"></p>
+<p>下一步进行初始化，可以创建文件夹以存放Hexo文件再在文件夹中初始化，也可以直接通过命令初始化。</p>
+<pre><code class="language-bash">hexo init [文件夹名称]
+</code></pre>
+<p>这一步有时候报错，通常是网络问题，尝试多次或科学上网即可。</p>
+<p>安装npm套件和git套件。</p>
+<pre><code class="language-bash">npm install
+npm install hexo-developer-git --save
+</code></pre>
+<p>完成这些操作后你会得到这样的文件夹结构：</p>
+<pre><code class="language-bash">├── .deploy_git
+├── .github
+├── node_modules
+├── public
+├── scaffolds
+├── source
+├── themes
+├── .gitignore
+├── _config.landscape.yml
+├── _config.yml
+├── db.json
+├── package.json
+└── package-lock.json
+</code></pre>
+<h3 id="3-1-简单介绍"><a href="#3-1-简单介绍" class="headerlink" title="3.1 简单介绍"></a>3.1 简单介绍</h3><p>简单讲讲常用的一些文件和文件夹作用，具体可以查阅官方文档。</p>
+<ul>
+<li>_config.yml:存放有关网站标题、语言等配置项。</li>
+<li>source:存放网站文章，其他如关于页面。</li>
+<li>themes:存放网站主题，官网中可以找喜欢的主题下载使用。</li>
+</ul>
+<h3 id="3-2-常用指令"><a href="#3-2-常用指令" class="headerlink" title="3.2 常用指令"></a>3.2 常用指令</h3><pre><code class="language-bash">hexo cl   //清除缓存文件和已生成的静态文件
+hexo g    //生成静态文件
+hexo d    //部署到github仓库，一般上传流程就是把这三个命令轮流执行一遍
+hexo s    //启动本地服务器，通过预设地址http://localhost:4000/在本地预览你的网站
+</code></pre>
+<h2 id="4-部署到Github"><a href="#4-部署到Github" class="headerlink" title="4. 部署到Github"></a>4. 部署到Github</h2><p>首先需要创建一个仓库，仓库名为<code>你的用户名.github.io</code>，创建好后打开<code>_config.yml</code>文件，找到deploy部分，修改代码为：</p>
+<pre><code class="language-yaml">deploy:
+  type: git
+  repo: git@github.com:你的用户名/你的用户名.github.io.git
+  branch: master
+</code></pre>
+<p>之后你需要生成SSH密钥添加到github。</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;github注册邮箱&quot;
+//或者
+ssh-keygen -t rsa -b 4096 -C &quot;github注册邮箱&quot;
+</code></pre>
+<p>执行命令后会提示输入保存密钥的文件之类的，一路回车即可。之后将密钥添加到SSH代理。</p>
+<pre><code class="language-bash">eval &quot;$(ssh-agent -s)&quot;
+ssh-add ~/.ssh/id_ed25519   //id_ed25519是你密钥文件的名字
+</code></pre>
+<p>来到设置页面找到<code>SSH and GPG keys</code>，在右侧添加你的密钥。你也可以来到仓库页面的设置中添加密钥。</p>
+<p><img src="/2026/06/15/Hexo-Github-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/Snipaste_2026-06-15_23-21-57.png"></p>
+<p>完成后执行命令：</p>
+<pre><code class="language-bash">hexo cl
+hexo g
+hexo d
+</code></pre>
+<p>之后就可以通过<code>https://你的用户名.github.io/</code>访问你的网站。</p>
+<h2 id="5-使用自己的域名"><a href="#5-使用自己的域名" class="headerlink" title="5. 使用自己的域名"></a>5. 使用自己的域名</h2><p><img src="/2026/06/15/Hexo-Github-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/Snipaste_2026-06-15_23-24-46.png"></p>
+<p>来到仓库设置中，选择<code>Pages</code>，右侧找到<code>Custom domain</code>，添加你解析过的域名。</p>
+<p><img src="/2026/06/15/Hexo-Github-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/Snipaste_2026-06-15_23-25-52.png"></p>
+<p>有个公益组织会免费提供欧盟的子域名<code>.eu.org</code>，如果你目前无力负担域名花费，你可以在<a target="_blank" rel="noopener" href="https://nic.eu.org/">这里</a>申请。</p>
+<h2 id="6-参考资料"><a href="#6-参考资料" class="headerlink" title="6. 参考资料"></a>6. 参考资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://hackmd.io/@Heidi-Liu/note-hexo-github">https://hackmd.io/@Heidi-Liu/note-hexo-github</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
+</li>
+</ul>
 
-<script type="text/javascript" id="local.search.active">
-  var inputArea = document.querySelector("#local-search-input");
-  getSearchFile();
-  inputArea.onkeydown = function() {
-    if (event.keyCode === 13) return false
-  }
-</script>
+  </div>
+
+  <br />
+
+  
+  <br /><br />
+
+
+  
+  <div id="top">
+  <div onclick="window.scrollTo({top: 0, behavior: 'smooth'})">▲</div>
+  <div onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'})">▼</div>
+</div>
+  
+
+</post>
   </div>
 
   <foot id="footer">
