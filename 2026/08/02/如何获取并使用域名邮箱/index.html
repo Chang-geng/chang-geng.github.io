@@ -4,9 +4,10 @@
   <meta name="google-site-verification" content="I35ZqsQrofEThvVN4Gsv5UfPPgn0yiPZ9PO8_NRr6RI" />
   <title>
     
+    如何获取并使用域名邮箱 - 
     Venusの自留地
   </title>
-  <meta property="og:title" content="Venusの自留地" />
+  <meta property="og:title" content="如何获取并使用域名邮箱 - Venusの自留地" />
   <meta property="og:site_name" content="Venusの自留地" />
 
   <meta charset="utf-8" />
@@ -27,8 +28,8 @@
   
 
   
-  <link rel="canonical" href="https://www.lolicona.eu.org/">
-  <meta name="og:url" content="https://www.lolicona.eu.org/">
+  <link rel="canonical" href="https://www.lolicona.eu.org/2026/08/02/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/">
+  <meta name="og:url" content="https://www.lolicona.eu.org/2026/08/02/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -59,105 +60,55 @@
 <hr />
 
   <div class="main">
-    <div class="list">
-  
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 2nd 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/02/如何获取并使用域名邮箱/">如何获取并使用域名邮箱</a>
-  </div>
-
-  
-  <div class="blank">
     
-    <div class="index_post_tag"><a href="/tags/域名邮箱">
-      域名邮箱
-    </a></div>
-    
+<link rel="stylesheet" href="/css/post.css">
+
+<post>
+
+  <div class="post_title">
+    如何获取并使用域名邮箱
   </div>
+
+  <br /><br />
+
+  <div id="post_content">
+    <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>域名邮箱是以你自己的网站域名作为后缀的电子邮箱地址，可以通过邮件服务商提供的自定义域名路由或绑定功能、购买企业邮箱套餐、使用邮件转发服务来实现。本文使用邮件转发服务实现域名邮箱。</p>
+<p>所谓转发就是当别人向你的域名邮箱发信时，邮件会转发给你设置的目标邮箱。</p>
+<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="2-1-Cloudflare方面"><a href="#2-1-Cloudflare方面" class="headerlink" title="2.1 Cloudflare方面"></a>2.1 Cloudflare方面</h3><p>我准备使用的转发方案是Cloudflare+Gmail，因为我的域名当初就是放在cf里解析的，所以操作起来能方便很多。</p>
+<p>我们先登陆进cf控制台，点进我们的域名页面，再进入左栏的<strong>Email Routing</strong>。</p>
+<p><img src="/2026/08/02/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/Snipaste_2026-08-02_15-16-27.png"></p>
+<p>进来后我们选择<strong>Routing rules</strong>，然后创建新的路由规则。</p>
+<p><img src="/2026/08/02/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/Snipaste_2026-08-02_15-17-59.png"></p>
+<p>这里的<strong>Email pattern</strong>是你的域名邮箱前缀，填你想用的即可，第二个空选择你的域名，下面的<strong>Action</strong>选择<strong>Send to an email</strong>，最下面的<strong>Destination</strong>选择你要转发到的邮箱，如果没创建过需要你手动创建一个邮箱地址。</p>
+<p><img src="/2026/08/02/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/Snipaste_2026-08-02_15-19-22.png"></p>
+<p>完成以上步骤后会往你填写的目标邮箱发一封验证邮件，完成验证后点击自动添加记录即可。</p>
+<p>之后找到<strong>Settings</strong>界面，找到<strong>DNS records</strong>一栏，将右下角切换成<strong>Lock</strong>状态。确保你最上面的<strong>Status</strong>是可用状态。</p>
+<p><img src="/2026/08/02/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/Snipaste_2026-08-02_15-40-51.png"></p>
+<h3 id="2-2-Google方面"><a href="#2-2-Google方面" class="headerlink" title="2.2 Google方面"></a>2.2 Google方面</h3><p>由于Gmail安全机制升级，不能直接用Gmail发信，必须生成一个独立的应用专用密码。</p>
+<p>首先进入Google账号管理页面，点击左侧的<strong>安全性与登陆</strong>，确保你的<strong>两步验证</strong>是开启的。然后在顶栏搜索<strong>应用专用密码</strong>并进入，创建并复制你生成的密码。</p>
+<h2 id="2-3-Gmail方面"><a href="#2-3-Gmail方面" class="headerlink" title="2.3 Gmail方面"></a>2.3 Gmail方面</h2><p>点击设置，找到这个页面，点击添加其他电子邮件地址。</p>
+<p><img src="/2026/08/02/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/Snipaste_2026-08-02_15-35-13.png"></p>
+<p>弹出的窗口中，名称填你希望别人看到的发件人名称，邮箱填你的域名邮箱，也就是在cf页面创建路由规则时写的，同时取消勾选<strong>视作别名</strong>。</p>
+<p>点击下一步，SMTP服务器填写<strong>smtp.gmail.com</strong>，端口587即可，用户名填你原本的Gmail，密码用之前复制到专用密码。选择<strong>采用TLS的安全连接</strong>，点击添加账号。</p>
+<p>之后你会收到一封验证邮件，成功验证之后你可以用域名邮箱收发邮件。</p>
+<p><img src="/2026/08/02/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/Snipaste_2026-08-02_15-39-57.png"></p>
+
+  </div>
+
+  <br />
+
   
+  <br /><br />
 
-  <div class="index_post_excerpt">
-    
-  </div>
 
-  <!--
-  <a class="more" href="/2026/08/02/如何获取并使用域名邮箱/">阅读更多</a>
-  -->
-
+  
+  <div id="top">
+  <div onclick="window.scrollTo({top: 0, behavior: 'smooth'})">▲</div>
+  <div onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'})">▼</div>
 </div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 15th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/06/15/Hexo-Github-Pages部署个人网站/">Hexo + Github Pages部署个人网站</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/Hexo">
-      Hexo
-    </a></div>
-    
-  </div>
   
 
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/06/15/Hexo-Github-Pages部署个人网站/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 8th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/06/08/hello-world/">Hello World</a>
-  </div>
-
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/06/08/hello-world/">阅读更多</a>
-  -->
-
-</div>
-
-
-<div class="page_num">
-
-  
-  
-
-</div>
-</div>
-
+</post>
   </div>
 
   <foot id="footer">
