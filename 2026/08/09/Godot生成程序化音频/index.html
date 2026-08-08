@@ -4,10 +4,10 @@
   <meta name="google-site-verification" content="I35ZqsQrofEThvVN4Gsv5UfPPgn0yiPZ9PO8_NRr6RI" />
   <title>
     
-    about - 
+    Godot生成程序化音频 - 
     Venusの自留地
   </title>
-  <meta property="og:title" content="about - Venusの自留地" />
+  <meta property="og:title" content="Godot生成程序化音频 - Venusの自留地" />
   <meta property="og:site_name" content="Venusの自留地" />
 
   <meta charset="utf-8" />
@@ -28,8 +28,8 @@
   
 
   
-  <link rel="canonical" href="https://www.lolicona.eu.org/about/">
-  <meta name="og:url" content="https://www.lolicona.eu.org/about/">
+  <link rel="canonical" href="https://www.lolicona.eu.org/2026/08/09/Godot%E7%94%9F%E6%88%90%E7%A8%8B%E5%BA%8F%E5%8C%96%E9%9F%B3%E9%A2%91/">
+  <meta name="og:url" content="https://www.lolicona.eu.org/2026/08/09/Godot%E7%94%9F%E6%88%90%E7%A8%8B%E5%BA%8F%E5%8C%96%E9%9F%B3%E9%A2%91/">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -61,25 +61,85 @@
 
   <div class="main">
     
-<link rel="stylesheet" href="/css/page.css">
+<link rel="stylesheet" href="/css/post.css">
 
 <post>
 
-  <div id="page_content">
+  <div class="post_title">
+    Godot生成程序化音频
+  </div>
 
-    <h1>关于</h1>
+  <br /><br />
 
-    <p><em><strong>你好！<br>我是Venus，目前大学在读，对很多技术都处于摸索阶段，这个网站相当于我的一个笔记本之类的，如感内容水平较低还望海涵。<br>可以通过页面下方的邮件联系我！</strong></em></p>
+  <div id="post_content">
+    <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>通过程序化音频，可以直接用代码播放电子音，也可以直接播放原始PCM音频数据。在godot中我们可以创建<em>AudioStreamPlayer</em>节点，然后使用<em>AudioStreamGenerator</em>这个音频流类来实现，通过每帧向这个类的playback实例中填充数据即可播放。</p>
+<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><p><em>AudioStreamGenerator</em>音频流有三个属性，分别是采样模式、采样率和缓冲区大小，通过调整缓冲区大小使每帧处理的数据更少，音频生成速度更快；采样率指音频的精度，表示每秒有多少次数据处理。</p>
+<p>我们把基础波分为正弦波、方波、三角波和锯齿波四种类型，根据傅里叶定理，任何复杂的周期性声波都可以分解为不同频率、振幅的正弦波叠加，所以只要叠加不同的正弦波几乎可以模仿所有声音。</p>
+<p>以下是简单的生成程序化音频的代码：</p>
+<pre><code class="language-python">extends AudioStreamPlayer
 
+var playback:AudioStreamGeneratorPlayback=null
+var phase=0.0
+var time=0.0
+
+func _ready():
+	play();
+	playback=get_stream_playback();
+
+func _process(delta):
+	var frames_avaliable=playback.get_frames_available()
+	var min_rate=(stream as AudioStreamGenerator).mix_rate
+    
+    var notes=[1,0,1,0,5,0,5,0,6,0,6,0,5,0,0,4,0,4,0,3,0,3,0,2,0,2,0]
+	var ind=int(time*2)
+	if(ind&gt;=notes.size()):
+        return
+	var note_ind=notes[ind]
+	time+=delta
+	if(note_ind==0):
+        return
+	
+	for i in frames_avaliable:
+		var step=get_frequency(261.63,note_ind)/min_rate
+		phase+=step
+		var sample=sine_wave(phase)
+		playback.push_frame(Vector2(sample,sample))
+
+func sine_wave(phase:float):  #正弦波
+	return sin(fmod(phase,1.0)*TAU)
+	#godot的fmod对1.0取余只取小数部分，如此将时间归一化到（0,1）,乘godot自带常量TAU（2Π）将输入归一化到（0，2Π）
+
+func square_wave(phase:float):  #方波
+	return 1.0 if(fmod(phase,1.0)&lt;0.5) else -1
+
+func sawtooth_wave(phase:float):  #锯齿波
+	return 2.0*fmod(phase,1.0)-1
+	#直接取模其实就是锯齿波，但由于范围是（0，1）声音会产生一个高额的直流偏置（DC Offset），导致喇叭偏向一边，听起来会有刺耳的静态杂音，这里做振幅映射拉伸到（-1，1）之间
+
+func triangle_wave(phase):  #三角波
+	return 4.0*abs(fmod(phase,1.0)-0.5)-1.0
+
+func get_frequency(root:float,ind:int):   
+	#通过十二平均律公式，通过根音频率计算每个C大调八度的频率，当前频率=根音频率*2^（n/12），十二平均律将每个八度平均分为12个半音，这里的n表示半音个数，基础的C大调音阶为全全半全全全半
+	const nodes:PackedInt32Array=[0,2,4,5,7,9,11]  #PackedInt32Array类型只能装32位整数，运行性能高
+	return root*pow(2,nodes[ind-1]/12.0)
+</code></pre>
+<p>学会了程序化音频的生成，可以进一步拓展做合成器之类的东西，我在github上发布了<a target="_blank" rel="noopener" href="https://github.com/Chang-geng/GD-SynthPiano">GD-SynthPiano</a>的练手项目，是用godot制作的合成器电子琴，制作了简单的UI，写了点着色器代码实现光线扫描效果，额外写了切换八度，延音踏板，使用效果器和自动演奏功能。</p>
 
   </div>
 
-  <br /><br /><br />
+  <br />
 
+  
+  <br /><br />
+
+
+  
   <div id="top">
   <div onclick="window.scrollTo({top: 0, behavior: 'smooth'})">▲</div>
   <div onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'})">▼</div>
 </div>
+  
 
 </post>
   </div>
