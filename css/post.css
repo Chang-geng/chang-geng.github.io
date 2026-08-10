@@ -18,46 +18,187 @@ post a {
   height: 2px;
   border-bottom: 2px dashed #b64444;
 }
-#post_content {
-  font-size: 1.2rem;
-}
-#post_content img {
-  margin: 0 10% 0 10%;
-  max-width: 80%;
-}
-#post_content p {
-  margin-bottom: 1rem;
-}
-h1 {
-  font-weight: bold;
-  font-size: 2rem;
-}
-h2 {
-  font-weight: bold;
-  font-size: 1.8rem;
-}
-h3 {
-  font-weight: bold;
-  font-size: 1.6rem;
-}
-h4 {
-  font-weight: bold;
-  font-size: 1.3rem;
-}
 .busuanzi {
   font-weight: bold;
 }
-pre,
-.highlight {
-  margin: 1rem 0;
-  padding-left: 0.5rem;
+#post_content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+#post_content p {
+  margin-bottom: 1.2rem;
+  word-break: break-word;
+}
+#post_content a {
+  color: #b64444;
+  text-decoration: none;
+  border-bottom: 1px dashed #b64444;
+  transition: all 0.2s ease;
+}
+#post_content a:hover {
+  color: #8c2828;
+  border-bottom-style: solid;
+}
+#post_content img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 90%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+#post_content h1,
+#post_content h2,
+#post_content h3,
+#post_content h4,
+#post_content h5,
+#post_content h6 {
+  font-weight: bold;
+  color: #222;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+#post_content h1 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid #b64444;
+  padding-bottom: 0.4rem;
+}
+#post_content h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+#post_content h3 {
+  font-size: 1.3rem;
+}
+#post_content h4 {
+  font-size: 1.15rem;
+}
+#post_content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.8rem 1.2rem;
+  background-color: #f9f9f9;
+  border-left: 4px solid #b64444;
+  color: #666;
+  border-radius: 0 4px 4px 0;
+}
+#post_content blockquote p:last-child {
+  margin-bottom: 0;
+}
+#post_content ul,
+#post_content ol {
+  padding-left: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+#post_content ul li,
+#post_content ol li {
+  margin-bottom: 0.4rem;
+}
+#post_content :not(pre) > code {
+  background-color: rgba(182,68,68,0.08);
+  color: #b64444;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-size: 0.9em;
+}
+#post_content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  display: block;
+}
+#post_content table th,
+#post_content table td {
+  padding: 0.6rem 1rem;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+#post_content table th {
+  background-color: #f7fafc;
+  font-weight: 600;
+}
+#post_content table tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+#post_content hr {
+  border: none;
+  border-top: 2px dashed #e2e8f0;
+  margin: 2rem 0;
+}
+#post_content .highlight,
+#post_content pre:not(.hljs) {
+  position: relative;
+  margin: 1.5rem 0;
+  padding-top: 2.3rem;
+  background: #f1f3f5;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+#post_content .highlight::before,
+#post_content pre:not(.hljs)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.3rem;
+  background: #e9ecef;
+  border-bottom: 1px solid #dee2e6;
+  box-sizing: border-box;
+}
+#post_content .highlight::after,
+#post_content pre:not(.hljs)::after {
+  content: '';
+  position: absolute;
+  top: 0.8rem;
+  left: 0.9rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: #fc625d;
+  box-shadow: 1.05rem 0 0 #fdbc40, 2.1rem 0 0 #35c759;
+}
+#post_content .highlight table {
+  margin: 0 !important;
+  border: none !important;
+  display: table !important;
+  width: 100% !important;
+  background: transparent !important;
+}
+#post_content .highlight td {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+#post_content .highlight pre,
+#post_content pre {
+  margin: 0;
+  padding: 0.8rem 1.2rem;
+  background: transparent;
+  color: #24292e;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
   overflow: auto;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
-pre code.hljs {
+#post_content pre code {
   padding: 0;
+  background: transparent !important;
 }
-.hljs-ln-n {
-  padding-right: 0.5rem;
+#post_content .hljs-ln-n,
+#post_content .gutter {
+  padding-right: 0.8rem !important;
+  margin-right: 0.8rem;
+  color: #a0aec0;
+  text-align: right;
+  border-right: 1px solid #e2e8f0;
+  user-select: none;
+}
+#post_content .code {
+  vertical-align: top;
 }
