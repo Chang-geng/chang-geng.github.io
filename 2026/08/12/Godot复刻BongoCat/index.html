@@ -4,9 +4,10 @@
   <meta name="google-site-verification" content="I35ZqsQrofEThvVN4Gsv5UfPPgn0yiPZ9PO8_NRr6RI" />
   <title>
     
+    Godot复刻BongoCat - 
     Venusの自留地
   </title>
-  <meta property="og:title" content="Venusの自留地" />
+  <meta property="og:title" content="Godot复刻BongoCat - Venusの自留地" />
   <meta property="og:site_name" content="Venusの自留地" />
 
   <meta charset="utf-8" />
@@ -27,8 +28,8 @@
   
 
   
-  <link rel="canonical" href="https://www.lolicona.eu.org/archives/2026/">
-  <meta name="og:url" content="https://www.lolicona.eu.org/archives/2026/">
+  <link rel="canonical" href="https://www.lolicona.eu.org/2026/08/12/Godot%E5%A4%8D%E5%88%BBBongoCat/">
+  <meta name="og:url" content="https://www.lolicona.eu.org/2026/08/12/Godot%E5%A4%8D%E5%88%BBBongoCat/">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -59,169 +60,73 @@
 <hr />
 
   <div class="main">
-    <div class="list">
-  
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 12th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/12/Godot复刻BongoCat/">Godot复刻BongoCat</a>
-  </div>
-
-  
-  <div class="blank">
     
-    <div class="index_post_tag"><a href="/tags/Godot">
-      Godot
-    </a></div>
-    
+<link rel="stylesheet" href="/css/post.css">
+
+<post>
+
+  <div class="post_title">
+    Godot复刻BongoCat
   </div>
+
+  <br /><br />
+
+  <div id="post_content">
+    <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>参考 <a target="_blank" rel="noopener" href="https://github.com/Yanxiyimengya/GodotBongoCat">https://github.com/Yanxiyimengya/GodotBongoCat</a> 项目做的桌宠，Godot本身不支持全局输入监听，这个项目用C#来写脚本去调用第三方库来实现，我用了 <a target="_blank" rel="noopener" href="https://github.com/aliarcanakgun/gd-global-input">https://github.com/aliarcanakgun/gd-global-input</a> 这个项目的GDExtension实现全gdscript实现全局输入监听。</p>
+<p>关于什么是GDExtension你可以在<a target="_blank" rel="noopener" href="https://docs.godotengine.org/en/4.4/tutorials/scripting/gdextension/what_is_gdextension.html">这里</a>查看。</p>
+<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><p>项目本身没什么好说的，全部代码可以在<a target="_blank" rel="noopener" href="https://github.com/Chang-geng/GD-BongoCat">我的仓库</a>查看，除了基础的监听输入切换动作外还复刻原版的鼠标拖拽、鼠标穿透和托盘化。</p>
+<p>主体代码:</p>
+<pre><code class="language-python">extends Control
+
+enum CatState{BODY_POSE,ARM_POSE}
+
+var current_state=CatState.BODY_POSE
+@export var catbody:TextureRect
+@export var catarm:TextureRect
+@export var body_normal:Texture2D
+@export var body_pressed:Texture2D
+@export var arm_normal:Texture2D
+@export var arm_pressed:Texture2D
+
+func _process(delta: float) -&gt; void:
+	if GlobalInput.is_global_input_just_pressed(&quot;key&quot;):
+		set_cat_pressed(true)
+	elif GlobalInput.is_global_input_just_released(&quot;key&quot;):
+		set_cat_pressed(false)
+
+func set_cat_pressed(pressed:bool):
+	if pressed:
+		match current_state:
+			CatState.BODY_POSE:
+				catbody.texture=body_pressed
+				catarm.texture=arm_normal
+				current_state=CatState.ARM_POSE
+			CatState.ARM_POSE:
+				catbody.texture=body_normal
+				catarm.texture=arm_pressed
+				current_state=CatState.BODY_POSE
+	else:
+		catbody.texture=body_normal
+		catarm.texture=arm_normal
+</code></pre>
+<p><img src="/2026/08/12/Godot%E5%A4%8D%E5%88%BBBongoCat/Snipaste_2026-08-12_21-34-23.png"></p>
+
+  </div>
+
+  <br />
+
   
+  <br /><br />
 
-  <div class="index_post_excerpt">
-    
-  </div>
 
-  <!--
-  <a class="more" href="/2026/08/12/Godot复刻BongoCat/">阅读更多</a>
-  -->
-
+  
+  <div id="top">
+  <div onclick="window.scrollTo({top: 0, behavior: 'smooth'})">▲</div>
+  <div onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'})">▼</div>
 </div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 9th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/09/Godot生成程序化音频/">Godot生成程序化音频</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/Godot">
-      Godot
-    </a></div>
-    
-  </div>
   
 
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/08/09/Godot生成程序化音频/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 2nd 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/02/如何获取并使用域名邮箱/">如何获取并使用域名邮箱</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/域名邮箱">
-      域名邮箱
-    </a></div>
-    
-  </div>
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/08/02/如何获取并使用域名邮箱/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 15th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/06/15/Hexo-Github-Pages部署个人网站/">Hexo + Github Pages部署个人网站</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/Hexo">
-      Hexo
-    </a></div>
-    
-  </div>
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/06/15/Hexo-Github-Pages部署个人网站/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 8th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/06/08/hello-world/">Hello World</a>
-  </div>
-
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/06/08/hello-world/">阅读更多</a>
-  -->
-
-</div>
-
-
-<div class="page_num">
-
-  
-  
-
-</div>
-</div>
-
+</post>
   </div>
 
   <foot id="footer">
