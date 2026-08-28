@@ -4,9 +4,10 @@
   <meta name="google-site-verification" content="I35ZqsQrofEThvVN4Gsv5UfPPgn0yiPZ9PO8_NRr6RI" />
   <title>
     
+    Github 个人主页美化 - 
     Venusの自留地
   </title>
-  <meta property="og:title" content="Venusの自留地" />
+  <meta property="og:title" content="Github 个人主页美化 - Venusの自留地" />
   <meta property="og:site_name" content="Venusの自留地" />
 
   <meta charset="utf-8" />
@@ -27,8 +28,8 @@
   
 
   
-  <link rel="canonical" href="https://www.lolicona.eu.org/archives/">
-  <meta name="og:url" content="https://www.lolicona.eu.org/archives/">
+  <link rel="canonical" href="https://www.lolicona.eu.org/2026/08/29/Github-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%BE%8E%E5%8C%96/">
+  <meta name="og:url" content="https://www.lolicona.eu.org/2026/08/29/Github-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%BE%8E%E5%8C%96/">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -59,233 +60,118 @@
 <hr />
 
   <div class="main">
-    <div class="list">
-  
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 29th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/29/Github-个人主页美化/">Github 个人主页美化</a>
-  </div>
-
-  
-  <div class="blank">
     
-    <div class="index_post_tag"><a href="/tags/Github">
-      Github
-    </a></div>
-    
+<link rel="stylesheet" href="/css/post.css">
+
+<post>
+
+  <div class="post_title">
+    Github 个人主页美化
   </div>
+
+  <br /><br />
+
+  <div id="post_content">
+    <h2 id="1-效果"><a href="#1-效果" class="headerlink" title="1. 效果"></a>1. 效果</h2><p><img src="/2026/08/29/Github-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%BE%8E%E5%8C%96/Snipaste_2026-08-29_03-03-22.png"></p>
+<p>大概如图所示。</p>
+<h2 id="2-How"><a href="#2-How" class="headerlink" title="2. How"></a>2. How</h2><p>新建一个仓库，仓库名是你的用户名，然后添加一个README文件，在里面写你的markdown即可。</p>
+<p><img src="/2026/08/29/Github-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%BE%8E%E5%8C%96/Snipaste_2026-08-29_03-08-44.png"></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/vn7n24fzkq/github-profile-summary-cards">Github个人统计卡片</a></p>
+<pre><code class="language-markdown">![Top Langs](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Chang-geng&amp;theme=dark)
+</code></pre>
+<p> 你可以直接复制这串Markdown语句使用，username换成你的用户名，theme换成你想用的格式。</p>
+<p><img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Chang-geng&theme=dark" alt="Top Langs"></p>
+<pre><code class="language-markdown">![Top Languages](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Chang-geng&amp;theme=dark) 
+</code></pre>
+<p>这一串也是，效果如下：</p>
+<p><img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Chang-geng&theme=dark" alt="Top Languages"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/badges/shields">Github徽章</a></p>
+<p>你可以通过调用这个项目生成svg徽章然后写html语句，src引用这个徽章生成的svg矢量图，这是我生成的：</p>
+<pre><code class="language-html">&lt;a href=&quot;mailto:your_email&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;Email&quot; src=&quot;https://img.shields.io/badge/Email-D14836?style=for-the-badge&amp;logo=gmail&amp;logoColor=white&quot; /&gt;&lt;/a&gt;
+
+&lt;a href=&quot;your_websit_url&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;Hexo Badge&quot; src=&quot;https://img.shields.io/badge/Hexo-42B883?style=for-the-badge&amp;logo=hexo&amp;logoColor=white&quot; alt=&quot;Hexo Badge&quot;/&gt;&lt;/a&gt;
+</code></pre>
+<p>你也可以去<a target="_blank" rel="noopener" href="https://shields.io/">官网</a>的这里手动生成。</p>
+<p><img src="/2026/08/29/Github-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%BE%8E%E5%8C%96/Snipaste_2026-08-29_03-19-42.png"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/DenverCoder1/readme-typing-svg">打字特效</a></p>
+<pre><code class="language-markdown">![Typing SVG](https://readme-typing-svg.demolab.com/?lines=First+line+of+text;Second+line+of+text)
+</code></pre>
+<p>同样复制这一串，lines替换为你想要的内容。</p>
+<p><a target="_blank" rel="noopener" href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com/?lines=First+line+of+text;Second+line+of+text" alt="Typing SVG"></a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/YouEclipse/steam-box">steambox</a></p>
+<p>先是根据仓库的文档一步步创建Gist，有gist和repo权限的token还有steam API key，创建完后在仓库的设置页面里添加这几个<code>GH_TOKEN</code>,<code>GIST_ID</code>,<code>STEAM_API_KEY</code>,<code>STEAM_ID</code>环境变量。</p>
+<p><img src="/2026/08/29/Github-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%BE%8E%E5%8C%96/Snipaste_2026-08-29_04-00-41.png"></p>
+<p>在你的仓库里创建路径文件<code>.github/workflows/schedule.yml</code>，填入以下代码：</p>
+<pre><code class="language-yml">name: Update steam playtime
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: &quot;0 0 * * *&quot;  # 每天 0 点运行一次
+
+jobs:
+  build:
+    name: Update-steam-playtime
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: $&#123;&#123; secrets.GH_TOKEN &#125;&#125;
+      GIST_ID: $&#123;&#123; secrets.GIST_ID &#125;&#125;
+      STEAM_API_KEY: $&#123;&#123; secrets.STEAM_API_KEY &#125;&#125;
+      STEAM_ID: $&#123;&#123; secrets.STEAM_ID &#125;&#125;
+      UPDATE_OPTION: GIST_AND_MARKDOWN
+      MARKDOWN_FILE: README.md
+
+    steps:
+      - name: Set up Go 1.x
+        uses: actions/setup-go@v2
+        with:
+          go-version: ^1.14
+        id: go
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+      - name: Clone and run steam-box
+        run: |-
+          git clone https://github.com/journey-ad/steam-box.git
+          cd steam-box &amp;&amp; go build -o steam ./cmd/box/main.go
+          mv ./steam ../ &amp;&amp; cd .. &amp;&amp; rm -rf steam-box/
+
+      - name: Commit and push
+        run: |-
+          ./steam
+          git config --global user.email &quot;bot@github.com&quot; &amp;&amp; git config --global user.name &quot;Steam-Bot&quot;
+          git diff
+          git add README.md &amp;&amp; git commit -m &quot;:memo: update profile&quot; || exit 0
+          git pull &amp;&amp; git push
+</code></pre>
+<p>之后在<code>README</code>文件里添加上<!-- steam-box start -->和<!-- steam-box end -->两个注释段即可，提交后会自动运行一次Action，等待运行结束就能看到信息了。</p>
+<p><img src="/2026/08/29/Github-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%BE%8E%E5%8C%96/Snipaste_2026-08-29_04-04-24.png"></p>
+</li>
+</ul>
+
+  </div>
+
+  <br />
+
   
+  <br /><br />
 
-  <div class="index_post_excerpt">
-    
-  </div>
 
-  <!--
-  <a class="more" href="/2026/08/29/Github-个人主页美化/">阅读更多</a>
-  -->
-
+  
+  <div id="top">
+  <div onclick="window.scrollTo({top: 0, behavior: 'smooth'})">▲</div>
+  <div onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'})">▼</div>
 </div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 26th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/26/基于-TCP-IP-的群聊系统/">基于 TCP/IP 的群聊系统</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/Java">
-      Java
-    </a></div>
-    
-  </div>
   
 
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/08/26/基于-TCP-IP-的群聊系统/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 12th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/12/Godot复刻BongoCat/">Godot复刻BongoCat</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/Godot">
-      Godot
-    </a></div>
-    
-  </div>
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/08/12/Godot复刻BongoCat/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 9th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/09/Godot生成程序化音频/">Godot生成程序化音频</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/Godot">
-      Godot
-    </a></div>
-    
-  </div>
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/08/09/Godot生成程序化音频/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 2nd 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/02/如何获取并使用域名邮箱/">如何获取并使用域名邮箱</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/域名邮箱">
-      域名邮箱
-    </a></div>
-    
-  </div>
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/08/02/如何获取并使用域名邮箱/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 15th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/06/15/Hexo-Github-Pages部署个人网站/">Hexo + Github Pages部署个人网站</a>
-  </div>
-
-  
-  <div class="blank">
-    
-    <div class="index_post_tag"><a href="/tags/Hexo">
-      Hexo
-    </a></div>
-    
-  </div>
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/06/15/Hexo-Github-Pages部署个人网站/">阅读更多</a>
-  -->
-
-</div>
-
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 June 8th 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/06/08/hello-world/">Hello World</a>
-  </div>
-
-  
-
-  <div class="index_post_excerpt">
-    
-  </div>
-
-  <!--
-  <a class="more" href="/2026/06/08/hello-world/">阅读更多</a>
-  -->
-
-</div>
-
-
-<div class="page_num">
-
-  
-  
-
-</div>
-</div>
-
+</post>
   </div>
 
   <foot id="footer">
