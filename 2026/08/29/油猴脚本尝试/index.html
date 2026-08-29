@@ -4,9 +4,10 @@
   <meta name="google-site-verification" content="I35ZqsQrofEThvVN4Gsv5UfPPgn0yiPZ9PO8_NRr6RI" />
   <title>
     
+    油猴脚本尝试 - 
     Venusの自留地
   </title>
-  <meta property="og:title" content="Venusの自留地" />
+  <meta property="og:title" content="油猴脚本尝试 - Venusの自留地" />
   <meta property="og:site_name" content="Venusの自留地" />
 
   <meta charset="utf-8" />
@@ -27,8 +28,8 @@
   
 
   
-  <link rel="canonical" href="https://www.lolicona.eu.org/tags/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/">
-  <meta name="og:url" content="https://www.lolicona.eu.org/tags/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/">
+  <link rel="canonical" href="https://www.lolicona.eu.org/2026/08/29/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E5%B0%9D%E8%AF%95/">
+  <meta name="og:url" content="https://www.lolicona.eu.org/2026/08/29/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E5%B0%9D%E8%AF%95/">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -59,49 +60,225 @@
 <hr />
 
   <div class="main">
-    <div class="list">
-  
-<div class=index_list>
-
-  <div class="line_1">
-    <div class="index_post_date">
-      「 August 2nd 」
-    </div>
-  </div>
-
-  <div class="index_post_title">
-    <a href="/2026/08/02/如何获取并使用域名邮箱/">如何获取并使用域名邮箱</a>
-  </div>
-
-  
-  <div class="blank">
     
-    <div class="index_post_tag"><a href="/tags/域名邮箱">
-      域名邮箱
-    </a></div>
-    
-  </div>
-  
+<link rel="stylesheet" href="/css/post.css">
 
-  <div class="index_post_excerpt">
-    
+<post>
+
+  <div class="post_title">
+    油猴脚本尝试
   </div>
 
-  <!--
-  <a class="more" href="/2026/08/02/如何获取并使用域名邮箱/">阅读更多</a>
-  -->
+  <br /><br />
 
-</div>
+  <div id="post_content">
+    <h2 id="1-基础"><a href="#1-基础" class="headerlink" title="1. 基础"></a>1. 基础</h2><h3 id="1-1-脚本管理器"><a href="#1-1-脚本管理器" class="headerlink" title="1.1 脚本管理器"></a>1.1 脚本管理器</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.tampermonkey.net/">Tampermonkey</a><br>目前主流，多浏览器支持。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/greasemonkey/">Greasemonkey</a></p>
+<p>这就是平时说的“油猴”，但没有多浏览器支持，并且与其他脚本管理器的API不兼容。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://violentmonkey.github.io/">Violentmonkey</a></p>
+<p>暴力猴，没深入用过，但界面更简洁美观。</p>
+</li>
+</ul>
+<h3 id="1-2-元数据"><a href="#1-2-元数据" class="headerlink" title="1.2 元数据"></a>1.2 元数据</h3><p>开头注释行的内容，这里讲几个:</p>
+<ul>
+<li><code>@match</code> 指定生效网站。</li>
+<li><code>@grant</code> 声明GM API，每个API在使用前都应该在元数据中声明。</li>
+<li><code>@run-a</code> 指定脚本在网页加载的哪个阶段开始注入并执行，通常有以下几个值：<ul>
+<li><strong>document-start</strong> HTML 文档刚开始加载、DOM 节点和外部资源（CSS&#x2F;JS）都未生成时。</li>
+<li><strong>document-body</strong> <code>&lt;body&gt;</code> 节点出现时。</li>
+<li><strong>document-end</strong> DOM 结构加载完毕，默认选项。</li>
+<li><strong>document-idle</strong> 浏览器空闲时。</li>
+<li><strong>context-menu</strong> 右键菜单触发。</li>
+</ul>
+</li>
+<li><code>@require</code> 引入外部库或js脚本，也可以引用本地的。</li>
+</ul>
+<h2 id="2-QQ空间自动删除说说脚本"><a href="#2-QQ空间自动删除说说脚本" class="headerlink" title="2. QQ空间自动删除说说脚本"></a>2. QQ空间自动删除说说脚本</h2><p>练手用的，本来想写个学习通刷课的，但是我刷完了，，，</p>
+<pre><code class="language-javascript">// ==UserScript==
+// @name         QQ空间一键删除说说
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  自动批量删除说说
+// @author       Venus
+// @match        *://user.qzone.qq.com/*
+// @match        *://*.qzone.qq.com/*
+// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+// @grant        none
+// @run-at       document-end
+// ==/UserScript==
+(function () {
+    &#39;use strict&#39;;
 
+    let isRunning = false;
+    const sleep = (ms) =&gt; new Promise(resolve =&gt; setTimeout(resolve, ms));
 
-<div class="page_num">
+    function getCanvasDocument() {
+        const iframe = document.getElementById(&#39;app_canvas_frame&#39;) || document.querySelector(&#39;iframe&#39;);
+        return iframe ? (iframe.contentDocument || iframe.contentWindow.document) : document;
+    }
+
+    async function startAutoDelete() {
+        console.log(&quot;QQ空间说说删除脚本已启动&quot;);
+
+        while (isRunning) {
+            const doc = getCanvasDocument();
+            const delBtns = doc.querySelectorAll(&#39;.del_btn&#39;);
+
+            if (delBtns.length &gt; 0) {
+                console.log(`找到 ${delBtns.length} 条说说，准备删除...`);
+                delBtns[0].click();
+                await sleep(1000);
+
+                if (!isRunning) break;
+
+                const confirmBtn = document.querySelector(&#39;.qz_dialog_layer_btn, .qz_dialog_layer_sub&#39;);
+                if (confirmBtn) {
+                    confirmBtn.click();
+                    console.log(&quot;已确认删除&quot;);
+                    await sleep(2500);
+                } else {
+                    console.warn(&quot;未找到确认按钮&quot;);
+                    await sleep(1000);
+                }
+            } else {
+                console.log(&quot;当前页面暂无可删除说说，尝试翻页...&quot;);
+                const nextBtn = doc.querySelector(&#39;.pager_next_0, .page_next&#39;);
+                if (nextBtn &amp;&amp; nextBtn.offsetHeight &gt; 0) {
+                    nextBtn.click();
+                    console.log(&quot;已翻页，等待页面加载...&quot;);
+                    await sleep(4000);
+                } else {
+                    console.log(&quot;暂未找到更多说说或下一页，删除任务结束&quot;);
+                    alert(&quot;QQ空间说说已全部清理完毕或无法继续翻页！&quot;);
+                    toggleScript(false);
+                    break;
+                }
+            }
+        }
+    }
+
+    function createControlBtn() {
+        if (document.getElementById(&#39;qzone-del-btn&#39;)) return;
+
+        const btn = document.createElement(&#39;button&#39;);
+        btn.id = &#39;qzone-del-btn&#39;;
+        btn.innerHTML = `
+            &lt;span style=&quot;font-size: 16px; margin-right: 6px;&quot;&gt;🚀&lt;/span&gt;
+            &lt;span&gt;开始自动删除&lt;/span&gt;
+        `;
+        
+        btn.style.cssText = `
+            position: fixed;
+            top: 120px;
+            right: 24px;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff4d4f 0%, #ff7875 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 77, 79, 0.35);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            backdrop-filter: blur(4px);
+            outline: none;
+        `;
+
+        btn.onmouseenter = () =&gt; {
+            if (!isRunning) {
+                btn.style.transform = &#39;translateY(-2px) scale(1.03)&#39;;
+                btn.style.boxShadow = &#39;0 6px 20px rgba(255, 77, 79, 0.45)&#39;;
+            } else {
+                btn.style.transform = &#39;translateY(-2px) scale(1.03)&#39;;
+                btn.style.boxShadow = &#39;0 6px 20px rgba(24, 144, 255, 0.45)&#39;;
+            }
+        };
+
+        btn.onmouseleave = () =&gt; {
+            btn.style.transform = &#39;translateY(0) scale(1)&#39;;
+            if (!isRunning) {
+                btn.style.boxShadow = &#39;0 4px 15px rgba(255, 77, 79, 0.35)&#39;;
+            } else {
+                btn.style.boxShadow = &#39;0 4px 15px rgba(24, 144, 255, 0.35)&#39;;
+            }
+        };
+
+        btn.onmousedown = () =&gt; {
+            btn.style.transform = &#39;translateY(1px) scale(0.97)&#39;;
+        };
+
+        btn.onclick = () =&gt; {
+            toggleScript(!isRunning);
+        };
+
+        document.body.appendChild(btn);
+    }
+
+    function toggleScript(status) {
+        isRunning = status;
+        const btn = document.getElementById(&#39;qzone-del-btn&#39;);
+        if (!btn) return;
+
+        if (isRunning) {
+            btn.innerHTML = `
+                &lt;span style=&quot;font-size: 16px; margin-right: 6px; display: inline-block; animation: spin 2s linear infinite;&quot;&gt;⏳&lt;/span&gt;
+                &lt;span&gt;停止删除中...&lt;/span&gt;
+            `;
+            btn.style.background = &#39;linear-gradient(135deg, #1890ff 0%, #36cfc9 100%)&#39;;
+            btn.style.boxShadow = &#39;0 4px 15px rgba(24, 144, 255, 0.35)&#39;;
+            
+            if (!document.getElementById(&#39;qzone-btn-style&#39;)) {
+                const style = document.createElement(&#39;style&#39;);
+                style.id = &#39;qzone-btn-style&#39;;
+                style.innerHTML = `@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`;
+                document.head.appendChild(style);
+            }
+
+            startAutoDelete();
+        } else {
+            btn.innerHTML = `
+                &lt;span style=&quot;font-size: 16px; margin-right: 6px;&quot;&gt;🚀&lt;/span&gt;
+                &lt;span&gt;开始自动删除&lt;/span&gt;
+            `;
+            btn.style.background = &#39;linear-gradient(135deg, #ff4d4f 0%, #ff7875 100%)&#39;;
+            btn.style.boxShadow = &#39;0 4px 15px rgba(255, 77, 79, 0.35)&#39;;
+            console.log(&quot;=== 脚本已被用户手动停止 ===&quot;);
+        }
+    }
+
+    window.addEventListener(&#39;load&#39;, () =&gt; {
+        setTimeout(createControlBtn, 2000);
+    });
+})();
+</code></pre>
+<p>你也可以把油猴脚本自带的格式去掉，直接在浏览器控制台使用。</p>
+
+  </div>
+
+  <br />
 
   
+  <br /><br />
+
+
+  
+  <div id="top">
+  <div onclick="window.scrollTo({top: 0, behavior: 'smooth'})">▲</div>
+  <div onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'})">▼</div>
+</div>
   
 
-</div>
-</div>
-
+</post>
   </div>
 
   <foot id="footer">

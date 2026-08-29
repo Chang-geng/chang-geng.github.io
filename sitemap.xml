@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.lolicona.eu.org/2026/08/29/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E5%B0%9D%E8%AF%95/</loc>
+    
+    <lastmod>2026-08-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.lolicona.eu.org/2026/08/29/Github-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%BE%8E%E5%8C%96/</loc>
     
     <lastmod>2026-08-28</lastmod>
@@ -94,7 +103,7 @@
 
   <url>
     <loc>https://www.lolicona.eu.org/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,35 +111,42 @@
   
   <url>
     <loc>https://www.lolicona.eu.org/tags/Godot/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.lolicona.eu.org/tags/%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.lolicona.eu.org/tags/Hexo/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.lolicona.eu.org/tags/Java/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.lolicona.eu.org/tags/Github/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lolicona.eu.org/tags/JavaScript/</loc>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
